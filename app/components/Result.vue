@@ -2,7 +2,7 @@
     <Page class="page" actionBarHidden="true">
         <ScrollView class="coverImage">
             <StackLayout>
-                    <ListView class="list-group" for="friend in friends" style="height:1250px">
+                    <ListView class="list-group" for="friend in friends">
                         <v-template>
                             <FlexboxLayout flexDirection="row" class="list-group-item">
                                 <Label :text="friend.name" class="list-group-item-heading"
@@ -60,23 +60,19 @@
 .coverImage {
     background-image: url("~/images/bill.png") ;
     background-repeat: no-repeat;
-    //-webkit-background-size: cover;
-    //-moz-background-size: cover;
-    //-o-background-size: cover;
-   // background-position: center;
-    //background-size: cover;
-      position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  min-width: 50%;
-  min-height: 50%;
-  opacity: 1;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.list-group {
+  margin-top:100px;
+  height:1500px;
+  margin-left:28px;
+  margin-right:28px;
 }
 </style>
 
