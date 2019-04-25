@@ -54,6 +54,7 @@
 <script>
     import Home from "./Home";
     import Result from "./Result";
+
 export default {
   name: 'app',
   data () {
@@ -104,10 +105,13 @@ export default {
                             console.log(`${this.friends[i].name} has to pay: MVR ${this.split.toFixed(2)}`);
                          }
 
-                   this.$navigateTo(Result, {
-                      clearHistory: true 
+                     this.$navigateTo(Result, {
+                    props: {
+                        netTotal: this.netTotal,
+                        friends: this.friends
+                    }
 
-                   })
+                   });
 
                   },
             back(){

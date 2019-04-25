@@ -1,12 +1,29 @@
 <template>
-    <Page  actionBarHidden="true">
-    <ScrollView class="coverImage">
-
-      
-
-    </ScrollView>
+    <Page class="page" actionBarHidden="true">
+        <ScrollView class="coverImage">
+            <StackLayout>
+                    <ListView class="list-group" for="friend in friends" style="height:1250px">
+                        <v-template>
+                            <FlexboxLayout flexDirection="row" class="list-group-item">
+                                <Label :text="friend.name" class="list-group-item-heading"
+                                    style="width: 60%" />
+							              <Label :text="friend.price" class="list-group-item-heading"
+																	                                    style="width: 60%" />
+                             <Label :text="friend.splity" class="list-group-item-heading"
+																	                                    style="width: 60%" />                                                                             
+                            </FlexboxLayout>
+                        </v-template>
+                    </ListView>
+                    <StackLayout>
+                      <Label :text="netTotal" class="list-group-item-heading"
+																	                                    style="width: 60%" />
+                <Button class="btn btn-primary" text="Continue" @tap="back"></Button>
+                  </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </Page>
 </template>
+
 
 
 
@@ -17,16 +34,17 @@
     import AddPages from "./AddPage";
     
     export default {
-
+       props: ['netTotal', 'friends'],
         data () {
     return {
-      netTotal :'',
-      eachPay: 0,
+      netTotal : this.netTotal,
+      friends: this.friends,
     }
 
   },
          methods: {
             back(){
+                console.log(this.netTotal);
                 this.$navigateTo(Home, {
                             clearHistory: true
             }
